@@ -19,3 +19,9 @@ variable "ssh_rsa_bits" {
   default     = 4096
   description = "Size of the generated RSA key for SSH"
 }
+
+variable "path" {
+  type        = string
+  default     = ""
+  description = "The path under which the user should be created"
+}
