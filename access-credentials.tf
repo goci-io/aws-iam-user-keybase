@@ -14,7 +14,7 @@ resource "tls_private_key" "key" {
 
 resource "aws_iam_user_ssh_key" "iam_ssh" {
   encoding   = "SSH"
-  username   = var.iam_username
+  username   = module.user.user_name
   public_key = tls_private_key.key.public_key_openssh
 }
 
