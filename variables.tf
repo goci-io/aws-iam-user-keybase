@@ -22,6 +22,6 @@ variable "ssh_rsa_bits" {
 
 variable "path" {
   type        = string
-  default     = ""
+  default     = "/"
   description = "The path under which the user should be created"
 }
