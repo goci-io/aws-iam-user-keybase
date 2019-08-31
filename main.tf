@@ -2,6 +2,10 @@ terraform {
   required_version = ">= 0.12.1"
 }
 
+provider "aws" {
+  version = "~> 2.25"
+}
+
 locals {
   keybase_fqn = format("keybase:%s", var.keybase)
 }
@@ -9,8 +13,9 @@ locals {
 module "user" {
   # Fork from https://github.com/cloudposse/terraform-aws-iam-user
   # cloudposse module is not Terraform 0.12 compatible. 
-  # TimJones source might fail at some point. Please check cloudposse for new release
-  # including Terraform 0.12 compatibility. 
+  # TimJones source might fail at some point because of the branch being deleted.
+  # Please check cloudposse source for new release including Terraform 0.12 compatibility. 
+  # https://github.com/cloudposse/terraform-aws-iam-user/pull/3
   source        = "git::https://github.com/TimJones/terraform-aws-iam-user.git?ref=update-to-tf-v0.12"
   name          = var.username
   groups        = var.groups
