@@ -1,9 +1,11 @@
 terraform {
   required_version = ">= 0.12.1"
-}
-
-provider "aws" {
-  version = "~> 2.25"
+  
+  required_providers {
+    aws      = "~> 2.25"
+    tls      = "~> 2.1"
+    external = "~> 1.2"
+  }
 }
 
 locals {
