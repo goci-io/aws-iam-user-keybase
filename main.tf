@@ -16,10 +16,11 @@ module "user" {
   # TimJones source might fail at some point because of the branch being deleted.
   # Please check cloudposse source for new release including Terraform 0.12 compatibility. 
   # https://github.com/cloudposse/terraform-aws-iam-user/pull/3
-  source        = "git::https://github.com/TimJones/terraform-aws-iam-user.git?ref=update-to-tf-v0.12"
-  name          = var.username
-  groups        = var.groups
-  path          = var.path
-  pgp_key       = local.keybase_fqn
-  force_destroy = true
+  source                  = "git::https://github.com/TimJones/terraform-aws-iam-user.git?ref=update-to-tf-v0.12"
+  name                    = var.username
+  groups                  = var.groups
+  path                    = var.path
+  pgp_key                 = local.keybase_fqn
+  force_destroy           = true
+  password_reset_required = false
 }
