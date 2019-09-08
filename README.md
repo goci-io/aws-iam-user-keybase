@@ -2,9 +2,11 @@
 
 #### Maintained by [@goci-io/prp-terraform](https://github.com/orgs/goci-io/teams/prp-terraform)
 
-This module provisions a login profile and AWS IAM user. It requires a keybase user account to encrypt user password, SSH and Access-/Secret key.
+This module provisions a login profile and AWS IAM user. It requires a keybase user account to encrypt user password and secret key.
 
 __NOTE:__ This currently uses a submodule which is not Terraform 0.12 compatible. Tracked [here](https://github.com/cloudposse/terraform-aws-iam-user/pull/3). Therefore a temporary branch is used in the releases.
+
+If you want to attach an SSH Key to the IAM user you will need to create a private and public key by your own. This is generally a better idea than having private keys stored even if they are encrypted and have limited permissions. If a public key is provided via `ssh_public_key` in ssh-rsa format it will be attached to the user automatically.
 
 ### Usage
 
