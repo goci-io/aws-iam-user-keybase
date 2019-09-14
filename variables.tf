@@ -5,8 +5,8 @@ variable "username" {
 }
 
 variable "ssh_public_key" {
-  type = string
-  default = ""
+  type        = string
+  default     = ""
   description = "The SSH public key to attach to the IAM User in ssh-rsa format"
 }
 
