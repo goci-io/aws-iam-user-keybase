@@ -8,7 +8,7 @@ provider "aws" {
 
 locals {
   keybase_fqn                = format("keybase:%s", var.keybase)
-  keybase_access_key_decrypt = format(local.decrypt_template, aws_iam_access_key.access_key.encrypted_secret)
+  keybase_access_key_decrypt = format("echo \"%s\" | base64 --decode | keybase pgp decrypt", aws_iam_access_key.access_key.encrypted_secret)
 }
 
 module "user" {
