@@ -8,7 +8,7 @@ provider "aws" {
 
 locals {
   keybase_fqn                = format("keybase:%s", var.keybase)
-  keybase_access_key_decrypt = format("echo \"%s\" | base64 --decode | keybase pgp decrypt", aws_iam_access_key.access_key.encrypted_secret)
+  keybase_access_key_decrypt = length(aws_iam_access_key.access_key.*.encrypted_secret) > 0 ? format("echo \"%s\" | base64 --decode | keybase pgp decrypt", join("", aws_iam_access_key.access_key.*.encrypted_secret)) : ""
 }
 
 module "user" {
@@ -34,6 +34,7 @@ resource "aws_iam_user_ssh_key" "iam_ssh" {
 }
 
 resource "aws_iam_access_key" "access_key" {
+  count   = var.create_access_key ? 1 : 0
   user    = module.user.user_name
   pgp_key = local.keybase_fqn
 }
