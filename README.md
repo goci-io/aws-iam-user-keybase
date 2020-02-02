@@ -18,3 +18,15 @@ module "user" {
   groups     = ["goci-sre", "goci-devs"]
 }
 ```
+
+### Configuration
+
+| Name | Description | Default |
+|-----------------|----------------------------------------|---------|
+| username | Name of the AWS user | - |
+| keybase | Keybase user name | - |
+| groups | Groups the user should be added to | `[]` |
+| ssh_public_key | SSH Public key to add to the IAM user | `""` |
+| create_access_key | If set to true generates IAM Access and Secret pair* | `false` |
+
+_* It is generally recommended to let the user create their own secret pair and handle rotation etc. This also avoids having too many important secrets in the terraform state file_
