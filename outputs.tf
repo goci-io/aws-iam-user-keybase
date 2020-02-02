@@ -8,7 +8,7 @@ output "user_arn" {
 }
 
 output "access_key_id" {
-  value = aws_iam_access_key.access_key.id
+  value = join("", aws_iam_access_key.access_key.*.id)
 }
 
 output "decrypt_password_command" {
