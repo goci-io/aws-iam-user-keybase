@@ -30,5 +30,5 @@ variable "path" {
 variable "create_access_key" {
   type        = bool
   default     = false
-  description = "Let the user create their own credentials. If set to true generates an Access/Secret pair" 
+  description = "Let the user create their own credentials. If set to true generates an Access/Secret pair"
 }
