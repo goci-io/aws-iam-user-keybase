@@ -2,7 +2,7 @@
 
 #### Maintained by [@goci-io/prp-terraform](https://github.com/orgs/goci-io/teams/prp-terraform)
 
-![Terraform Validate](https://github.com/goci-io/aws-iam-user-keybase/workflows/Terraform%20Validate/badge.svg)
+![terraform](https://github.com/goci-io/aws-iam-user-keybase/workflows/terraform/badge.svg?branch=master)
 
 This module provisions a login profile and AWS IAM user. It requires a keybase user account to encrypt user password and secret key.
 
